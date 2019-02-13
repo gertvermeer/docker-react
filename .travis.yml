@@ -1,0 +1,10 @@
+sudo: required
+service: 
+    - docker
+    
+    
+before_install:
+    - docker build -t gertvermeer/docker-react -f Dockerfile.dev .
+    
+script:
+    - docker run gertvermeer/docker-react npm run test -- --coverage
